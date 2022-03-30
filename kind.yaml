@@ -1,0 +1,33 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+networking:
+  # for CNI flannel
+  # the default CNI will not be installed
+  podSubnet: "10.244.0.0/16"
+  disableDefaultCNI: true
+
+nodes:
+  - role: control-plane
+    extraMounts:
+      - hostPath: /home/KinD/CNIplugin/plugins/bin
+        containerPath: /opt/cni/bin
+  - role: control-plane
+    extraMounts:
+      - hostPath: /home/KinD/CNIplugin/plugins/bin
+        containerPath: /opt/cni/bin
+  - role: worker
+    extraMounts:
+      - hostPath: /home/KinD/CNIplugin/plugins/bin
+        containerPath: /opt/cni/bin
+  - role: worker
+    extraMounts:
+      - hostPath: /home/KinD/CNIplugin/plugins/bin
+        containerPath: /opt/cni/bin
+  - role: worker
+    extraMounts:
+      - hostPath: /home/KinD/CNIplugin/plugins/bin
+        containerPath: /opt/cni/bin
+  - role: worker
+    extraMounts:
+      - hostPath: /home/KinD/CNIplugin/plugins/bin
+        containerPath: /opt/cni/bin
